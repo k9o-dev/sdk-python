@@ -1,0 +1,876 @@
+{
+  "format": 1,
+  "keyManifest": {
+    "jws": "eyJhbGciOiJFZERTQSIsImtpZCI6Ims5by1iYXJiaWNhbi1yb290LXYxIiwidHlwIjoiazlvLmJhcmJpY2FuLmtleXMudjEifQ.eyJpc3N1ZWRBdCI6IjIwMjYtMTAtMDFUMDA6MDA6MDBaIiwia2V5cyI6W3siYWxnIjoiRWREU0EiLCJraWQiOiJrYXQtdGVzdC1rZXktMSIsIm5vdEJlZm9yZSI6IjIwMjYtMDEtMDFUMDA6MDA6MDBaIiwicHVibGljS2V5Ijp7ImNydiI6IkVkMjU1MTkiLCJrdHkiOiJPS1AiLCJ4Ijoia0RjZ3FTTzVMMmF1NzdVVWtYU3FFZFR0cXVITlBDS081ZVJkRGwtMmdjcyJ9LCJzdGF0dXMiOiJhY3RpdmUifV0sInNlcXVlbmNlIjoxfQ.ijWRMq09n_YZQ0UOne19SJv6A7PTL6EkqlQfFiPyropzEh82hDSLlkvvqvRZLgoiWjVV_l6zeFG9PR4CZ8f9Cg",
+    "sequence": 1,
+    "trustedKids": [
+      "kat-test-key-1"
+    ]
+  },
+  "keyManifestCases": [
+    {
+      "expect": "ok",
+      "jws": "eyJhbGciOiJFZERTQSIsImtpZCI6Ims5by1iYXJiaWNhbi1yb290LXYxIiwidHlwIjoiazlvLmJhcmJpY2FuLmtleXMudjEifQ.eyJpc3N1ZWRBdCI6IjIwMjYtMTAtMDFUMDA6MDA6MDBaIiwia2V5cyI6W3siYWxnIjoiRWREU0EiLCJraWQiOiJrYXQtdGVzdC1rZXktMSIsIm5vdEJlZm9yZSI6IjIwMjYtMDEtMDFUMDA6MDA6MDBaIiwicHVibGljS2V5Ijp7ImNydiI6IkVkMjU1MTkiLCJrdHkiOiJPS1AiLCJ4Ijoia0RjZ3FTTzVMMmF1NzdVVWtYU3FFZFR0cXVITlBDS081ZVJkRGwtMmdjcyJ9LCJzdGF0dXMiOiJhY3RpdmUifV0sInNlcXVlbmNlIjoxfQ.ijWRMq09n_YZQ0UOne19SJv6A7PTL6EkqlQfFiPyropzEh82hDSLlkvvqvRZLgoiWjVV_l6zeFG9PR4CZ8f9Cg",
+      "name": "valid_root_signed"
+    },
+    {
+      "expect": "signature_invalid",
+      "jws": "eyJhbGciOiJFZERTQSIsImtpZCI6Ims5by1iYXJiaWNhbi1yb290LXYxIiwidHlwIjoiazlvLmJhcmJpY2FuLmtleXMudjEifQ.eyJpc3N1ZWRBdCI6IjIwMjYtMTAtMDFUMDA6MDA6MDBaIiwia2V5cyI6W3siYWxnIjoiRWREU0EiLCJraWQiOiJrYXQtdGVzdC1rZXktMSIsIm5vdEJlZm9yZSI6IjIwMjYtMDEtMDFUMDA6MDA6MDBaIiwicHVibGljS2V5Ijp7ImNydiI6IkVkMjU1MTkiLCJrdHkiOiJPS1AiLCJ4Ijoia0RjZ3FTTzVMMmF1NzdVVWtYU3FFZFR0cXVITlBDS081ZVJkRGwtMmdjcyJ9LCJzdGF0dXMiOiJhY3RpdmUifV0sInNlcXVlbmNlIjoxfQ.3KeEYk7sALi-Jmo_WRXYOD78qLpAF433jWI899rc41YVxai8OU9_hB9dZrmHpKd0pTE1K1-z01ofeKcOZZ0UDQ",
+      "name": "signed_by_ruleset_key_not_root"
+    },
+    {
+      "expect": "signature_invalid",
+      "jws": "eyJhbGciOiJFZERTQSIsImtpZCI6Ims5by1iYXJiaWNhbi1yb290LXYxIiwidHlwIjoiazlvLmJhcmJpY2FuLmtleXMudjEifQ.eyJpc3N1ZWRBdCI6IjIwMjYtMTAtMDFUMDA6MDA6MDBaIiwia2V5cyI6W3siYWxnIjoiRWREU0EiLCJraWQiOiJrYXQtdGVzdC1rZXktMSIsIm5vdEJlZm9yZSI6IjIwMjYtMDEtMDFUMDA6MDA6MDBaIiwicHVibGljS2V5Ijp7ImNydiI6IkVkMjU1MTkiLCJrdHkiOiJPS1AiLCJ4Ijoia0RjZ3FTTzVMMmF1NzdVVWtYU3FFZFR0cXVITlBDS081ZVJkRGwtMmdjcyJ9LCJzdGF0dXMiOiJhY3RpdmUifV0sInNlcXVlbmNlIjoxfQ.rFxd7dsSSQZG2_hATQUYebwRP3cH_iQ5H8EU7H2cAwcu27lrMbIFsNNWZGAu5cuuY6pGJ44KM97u_zI5WHxOCA",
+      "name": "signed_by_other_key"
+    },
+    {
+      "expect": "wrong_typ",
+      "jws": "eyJhbGciOiJFZERTQSIsImtpZCI6Ims5by1iYXJiaWNhbi1yb290LXYxIiwidHlwIjoiazlvLmJhcmJpY2FuLm1hbmlmZXN0LnYxIn0.eyJpc3N1ZWRBdCI6IjIwMjYtMTAtMDFUMDA6MDA6MDBaIiwia2V5cyI6W3siYWxnIjoiRWREU0EiLCJraWQiOiJrYXQtdGVzdC1rZXktMSIsIm5vdEJlZm9yZSI6IjIwMjYtMDEtMDFUMDA6MDA6MDBaIiwicHVibGljS2V5Ijp7ImNydiI6IkVkMjU1MTkiLCJrdHkiOiJPS1AiLCJ4Ijoia0RjZ3FTTzVMMmF1NzdVVWtYU3FFZFR0cXVITlBDS081ZVJkRGwtMmdjcyJ9LCJzdGF0dXMiOiJhY3RpdmUifV0sInNlcXVlbmNlIjoxfQ.Hw0Od8vBnakBq-GNh0DnxyezKLmBPeCrP2yTyDbxtvWZDsQ5y95kqpqn2JWfITADoRNGEAl1GBjuH_5iS3z2Dw",
+      "name": "manifest_typ_where_keys_expected"
+    },
+    {
+      "expect": "malformed",
+      "jws": "a.b",
+      "name": "not_a_jws"
+    },
+    {
+      "expect": "malformed",
+      "jws": "eyJhbGciOiJFZERTQSIsImtpZCI6Ims5by1iYXJiaWNhbi1yb290LXYxIiwidHlwIjoiazlvLmJhcmJpY2FuLmtleXMudjEifQ.eyJpc3N1ZWRBdCI6IjIwMjYtMTAtMDFUMDA6MDA6MDBaIiwia2V5cyI6W3siYWxnIjoiRWREU0EiLCJraWQiOiJrYXQtdGVzdC1rZXktMSIsIm5vdEJlZm9yZSI6IjIwMjYtMDEtMDFUMDA6MDA6MDBaIiwicHVibGljS2V5Ijp7ImNydiI6IkVkMjU1MTkiLCJrdHkiOiJPS1AiLCJ4Ijoia0RjZ3FTTzVMMmF1NzdVVWtYU3FFZFR0cXVITlBDS081ZVJkRGwtMmdjcyJ9LCJzdGF0dXMiOiJhY3RpdmUifSx7ImFsZyI6IkVkRFNBIiwia2lkIjoid2Vhay1rZXkiLCJub3RCZWZvcmUiOiIyMDI2LTAxLTAxVDAwOjAwOjAwWiIsInB1YmxpY0tleSI6eyJjcnYiOiJFZDI1NTE5Iiwia3R5IjoiT0tQIiwieCI6IkFRQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUEifSwic3RhdHVzIjoiYWN0aXZlIn1dLCJzZXF1ZW5jZSI6MX0.ApJCTjL4xEML_L5B6Xo3DaFnDlp0JPEsG_oS9zAxYT4BR5gVaE3uKjd8Q2slRpaA62QkXQyORIV0Ye4V0H4hBA",
+      "name": "small_order_key_listed"
+    }
+  ],
+  "manifestCases": [
+    {
+      "expect": "ok",
+      "info": {
+        "artifact_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "artifact_url": "https://api.k9o.io/barbican/ruleset/42",
+        "ruleset_version": 42,
+        "signing_key_kid": "kat-test-key-1",
+        "valid_until": 1791763200
+      },
+      "jws": "eyJhbGciOiJFZERTQSIsImtpZCI6ImthdC10ZXN0LWtleS0xIiwidHlwIjoiazlvLmJhcmJpY2FuLm1hbmlmZXN0LnYxIn0.eyJhcnRpZmFjdEhhc2giOiJhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhIiwiYXJ0aWZhY3RVcmwiOiJodHRwczovL2FwaS5rOW8uaW8vYmFyYmljYW4vcnVsZXNldC80MiIsImNyZWF0ZWRBdCI6IjIwMjYtMTAtMDRUMDA6MDA6MDBaIiwicnVsZXNldFZlcnNpb24iOjQyLCJzaWduaW5nS2V5S2lkIjoia2F0LXRlc3Qta2V5LTEiLCJ2YWxpZFVudGlsIjoiMjAyNi0xMC0xMlQwMDowMDowMFoifQ.QcpFuW6KfycnbfvyADMZ2XIyMvF4YvF_eUoDJn7Kvy9yEmzK5JXBcGlN7XrV8RFi7pQJIbg9Uj5xApeCcMXwCA",
+      "name": "valid"
+    },
+    {
+      "expect": "signature_invalid",
+      "jws": "eyJhbGciOiJFZERTQSIsImtpZCI6ImthdC10ZXN0LWtleS0xIiwidHlwIjoiazlvLmJhcmJpY2FuLm1hbmlmZXN0LnYxIn0.eyJhcnRpZmFjdEhhc2giOiJhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhIiwiYXJ0aWZhY3RVcmwiOiJodHRwczovL2FwaS5rOW8uaW8vYmFyYmljYW4vcnVsZXNldC80MiIsImNyZWF0ZWRBdCI6IjIwMjYtMTAtMDRUMDA6MDA6MDBaIiwicnVsZXNldFZlcnNpb24iOjQyLCJzaWduaW5nS2V5S2lkIjoia2F0LXRlc3Qta2V5LTEiLCJ2YWxpZFVudGlsIjoiMjAyNi0xMC0xMlQwMDowMDowMFoifQ.ZnT0JXeogg3GxAnoEXcqI7_gDCM9F2kMKuuyLXA0Du9X7FUYLXEGt54SHR6iVdc8-Lc7pD9Y4LLNC-ZDk0nSDA",
+      "name": "signed_by_other_key_under_trusted_kid"
+    },
+    {
+      "expect": "unknown_kid",
+      "jws": "eyJhbGciOiJFZERTQSIsImtpZCI6Im5vcGUiLCJ0eXAiOiJrOW8uYmFyYmljYW4ubWFuaWZlc3QudjEifQ.eyJhcnRpZmFjdEhhc2giOiJhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhIiwiYXJ0aWZhY3RVcmwiOiJodHRwczovL2FwaS5rOW8uaW8vYmFyYmljYW4vcnVsZXNldC80MiIsImNyZWF0ZWRBdCI6IjIwMjYtMTAtMDRUMDA6MDA6MDBaIiwicnVsZXNldFZlcnNpb24iOjQyLCJzaWduaW5nS2V5S2lkIjoibm9wZSIsInZhbGlkVW50aWwiOiIyMDI2LTEwLTEyVDAwOjAwOjAwWiJ9.NkpmpjtTzHhHZwiCvkjWXf2GLHzPpaDqS-WCAPt6TjtUgpERQ4fhH2bEujVTQkZYT-s4B-ncCbbX3tJGFiMXDw",
+      "name": "unknown_kid"
+    },
+    {
+      "expect": "kid_mismatch",
+      "jws": "eyJhbGciOiJFZERTQSIsImtpZCI6ImthdC10ZXN0LWtleS0xIiwidHlwIjoiazlvLmJhcmJpY2FuLm1hbmlmZXN0LnYxIn0.eyJhcnRpZmFjdEhhc2giOiJhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhIiwiYXJ0aWZhY3RVcmwiOiJodHRwczovL2FwaS5rOW8uaW8vYmFyYmljYW4vcnVsZXNldC80MiIsImNyZWF0ZWRBdCI6IjIwMjYtMTAtMDRUMDA6MDA6MDBaIiwicnVsZXNldFZlcnNpb24iOjQyLCJzaWduaW5nS2V5S2lkIjoib3RoZXIiLCJ2YWxpZFVudGlsIjoiMjAyNi0xMC0xMlQwMDowMDowMFoifQ.4llaWpVcDTSPCs-u4RKFwzjObYglFzlrXFQSvPNpuJTnpZr90kPmGnCkh3PtxOLPNIFPVnVlCTQ6044KWiIVCQ",
+      "name": "payload_kid_differs_from_header_kid"
+    },
+    {
+      "expect": "malformed",
+      "jws": "eyJhbGciOiJFZERTQSIsImtpZCI6ImthdC10ZXN0LWtleS0xIiwidHlwIjoiazlvLmJhcmJpY2FuLm1hbmlmZXN0LnYxIn0.eyJhcnRpZmFjdEhhc2giOiJhYiIsImFydGlmYWN0VXJsIjoiaHR0cHM6Ly9hcGkuazlvLmlvL2JhcmJpY2FuL3J1bGVzZXQvNDIiLCJjcmVhdGVkQXQiOiIyMDI2LTEwLTA0VDAwOjAwOjAwWiIsInJ1bGVzZXRWZXJzaW9uIjo0Miwic2lnbmluZ0tleUtpZCI6ImthdC10ZXN0LWtleS0xIiwidmFsaWRVbnRpbCI6IjIwMjYtMTAtMTJUMDA6MDA6MDBaIn0.gG9iH2Ar8-WRN6QCHZIf7xj1v3cGWSIs68S2M4Wr6S2IDQl8bNY2P5kTcoPf_gbg4CsTVsqPSDu5fibE8bANAg",
+      "name": "bad_artifact_hash"
+    }
+  ],
+  "note": "PUBLIC test keys. Replay with a build that trusts the test root; every `expect` is `ok` or a closed reason token.",
+  "now": 1790000000,
+  "rootKid": "k9o-barbican-root-v1",
+  "rootPublicKeyB64u": "fUbAxp0kTvi9Xtv5QJXxvs1kv-rO_YB7p9zZKJYdhYw",
+  "rulesetCases": [
+    {
+      "activeIsSigned": false,
+      "blob": {
+        "created_at": 0,
+        "rules": [
+          {
+            "id": "sql_injection",
+            "pattern": "DROP TABLE",
+            "severity": "critical"
+          },
+          {
+            "id": "pii_leak",
+            "pattern": "ssn",
+            "severity": "medium"
+          }
+        ],
+        "ruleset_version": 42,
+        "signature_b64": "ET3llCOHE4V9NQb6MkxR1YLKbj+Dym94ftNZqOm6+7b8tiUOUv6jVMvQ6EnA02DKSinzlQRXNaoKAykDY53BAA==",
+        "signing_key_kid": "kat-test-key-1"
+      },
+      "digest": "da680ea9cafcc83ae2735f60cf2b3698148f8178416941b9b7c28428e022b840",
+      "expect": "unknown_kid",
+      "loadKeys": false,
+      "name": "no_key_manifest_loaded",
+      "probes": [
+        {
+          "denied": false,
+          "text": "please DROP TABLE users"
+        },
+        {
+          "denied": false,
+          "text": "DROP DATABASE prod"
+        }
+      ],
+      "signedFloor": 0
+    },
+    {
+      "activeIsSigned": true,
+      "blob": {
+        "created_at": 0,
+        "rules": [
+          {
+            "id": "sql_injection",
+            "pattern": "DROP TABLE",
+            "severity": "critical"
+          },
+          {
+            "id": "pii_leak",
+            "pattern": "ssn",
+            "severity": "medium"
+          }
+        ],
+        "ruleset_version": 42,
+        "signature_b64": "ET3llCOHE4V9NQb6MkxR1YLKbj+Dym94ftNZqOm6+7b8tiUOUv6jVMvQ6EnA02DKSinzlQRXNaoKAykDY53BAA==",
+        "signing_key_kid": "kat-test-key-1"
+      },
+      "digest": "da680ea9cafcc83ae2735f60cf2b3698148f8178416941b9b7c28428e022b840",
+      "expect": "ok",
+      "loadKeys": true,
+      "name": "valid_v42",
+      "probes": [
+        {
+          "denied": true,
+          "text": "please DROP TABLE users"
+        },
+        {
+          "denied": false,
+          "text": "DROP DATABASE prod"
+        }
+      ],
+      "signedFloor": 42,
+      "version": 42
+    },
+    {
+      "activeIsSigned": false,
+      "blob": {
+        "created_at": 0,
+        "rules": [
+          {
+            "id": "sql_injection",
+            "pattern": "DROP DATABASE",
+            "severity": "critical"
+          },
+          {
+            "id": "pii_leak",
+            "pattern": "ssn",
+            "severity": "medium"
+          }
+        ],
+        "ruleset_version": 42,
+        "signature_b64": "ET3llCOHE4V9NQb6MkxR1YLKbj+Dym94ftNZqOm6+7b8tiUOUv6jVMvQ6EnA02DKSinzlQRXNaoKAykDY53BAA==",
+        "signing_key_kid": "kat-test-key-1"
+      },
+      "digest": "7af32bc2805af4a5f0039c7074a0dcb9b9d41d7e3847b00b291b8c79f3586459",
+      "expect": "signature_invalid",
+      "loadKeys": true,
+      "name": "tampered_rule",
+      "probes": [
+        {
+          "denied": false,
+          "text": "please DROP TABLE users"
+        },
+        {
+          "denied": false,
+          "text": "DROP DATABASE prod"
+        }
+      ],
+      "signedFloor": 0
+    },
+    {
+      "activeIsSigned": false,
+      "blob": {
+        "created_at": 0,
+        "rules": [
+          {
+            "id": "sql_injection",
+            "pattern": "DROP TABLE",
+            "severity": "critical"
+          },
+          {
+            "id": "pii_leak",
+            "pattern": "ssn",
+            "severity": "medium"
+          }
+        ],
+        "ruleset_version": 42,
+        "signature_b64": "ET3llCOHE4V9NQb6MkxR1YLKbj+Dym94ftNZqOm6+7bpihtrbGG2rKFt4OyezT/fSinzlQRXNaoKAykDY53BEA==",
+        "signing_key_kid": "kat-test-key-1"
+      },
+      "digest": "da680ea9cafcc83ae2735f60cf2b3698148f8178416941b9b7c28428e022b840",
+      "expect": "signature_non_canonical",
+      "loadKeys": true,
+      "name": "high_s_malleable_twin",
+      "probes": [
+        {
+          "denied": false,
+          "text": "please DROP TABLE users"
+        },
+        {
+          "denied": false,
+          "text": "DROP DATABASE prod"
+        }
+      ],
+      "signedFloor": 0
+    },
+    {
+      "activeIsSigned": false,
+      "blob": {
+        "created_at": 0,
+        "rules": [
+          {
+            "id": "sql_injection",
+            "pattern": "DROP TABLE",
+            "severity": "critical"
+          },
+          {
+            "id": "pii_leak",
+            "pattern": "ssn",
+            "severity": "medium"
+          }
+        ],
+        "ruleset_version": 42,
+        "signature_b64": "ET3llCOHE4V9NQb6MkxR1YLKbj+Dym94ftNZqOm6+7b8tiUOUv6jVMvQ6EnA02DKSinzlQRXNaoKAykDY53B",
+        "signing_key_kid": "kat-test-key-1"
+      },
+      "digest": "da680ea9cafcc83ae2735f60cf2b3698148f8178416941b9b7c28428e022b840",
+      "expect": "signature_invalid",
+      "loadKeys": true,
+      "name": "signature_63_bytes",
+      "probes": [
+        {
+          "denied": false,
+          "text": "please DROP TABLE users"
+        },
+        {
+          "denied": false,
+          "text": "DROP DATABASE prod"
+        }
+      ],
+      "signedFloor": 0
+    },
+    {
+      "activeIsSigned": false,
+      "blob": {
+        "created_at": 0,
+        "rules": [
+          {
+            "id": "sql_injection",
+            "pattern": "DROP TABLE",
+            "severity": "critical"
+          },
+          {
+            "id": "pii_leak",
+            "pattern": "ssn",
+            "severity": "medium"
+          }
+        ],
+        "ruleset_version": 42,
+        "signature_b64": "ET3llCOHE4V9NQb6MkxR1YLKbj+Dym94ftNZqOm6+7b8tiUOUv6jVMvQ6EnA02DKSinzlQRXNaoKAykDY53BAA==",
+        "signing_key_kid": "some-other-kid"
+      },
+      "digest": "da680ea9cafcc83ae2735f60cf2b3698148f8178416941b9b7c28428e022b840",
+      "expect": "unknown_kid",
+      "loadKeys": true,
+      "name": "unknown_kid",
+      "probes": [
+        {
+          "denied": false,
+          "text": "please DROP TABLE users"
+        },
+        {
+          "denied": false,
+          "text": "DROP DATABASE prod"
+        }
+      ],
+      "signedFloor": 0
+    },
+    {
+      "activeIsSigned": false,
+      "blob": {
+        "created_at": 0,
+        "rules": [
+          {
+            "id": "sql_injection",
+            "pattern": "DROP TABLE",
+            "severity": "critical"
+          },
+          {
+            "id": "pii_leak",
+            "pattern": "ssn",
+            "severity": "medium"
+          }
+        ],
+        "ruleset_version": 42,
+        "signature_b64": "A8QohhIf6tUF6dnX16Y6FNicyeo1oEvFkMmrRfUyiMtOWVCkRZGgw2bE6P4dapD3zr762BcI6H8Pgv1HO0aQCg==",
+        "signing_key_kid": "kat-test-key-1"
+      },
+      "digest": "da680ea9cafcc83ae2735f60cf2b3698148f8178416941b9b7c28428e022b840",
+      "expect": "signature_invalid",
+      "loadKeys": true,
+      "name": "wrong_key_for_trusted_kid",
+      "probes": [
+        {
+          "denied": false,
+          "text": "please DROP TABLE users"
+        },
+        {
+          "denied": false,
+          "text": "DROP DATABASE prod"
+        }
+      ],
+      "signedFloor": 0
+    },
+    {
+      "activeIsSigned": false,
+      "blob": {
+        "created_at": 0,
+        "rules": [
+          {
+            "id": "x",
+            "pattern": "",
+            "severity": "low"
+          }
+        ],
+        "ruleset_version": 42,
+        "signature_b64": "rAEGa7JJbVNvrFUuZuPMFzQgwm0gesTXBxvpa+TE3arKcVGARigLZL66AfwiqfqFvsWQUSSEQ+6R4V538YOWBw==",
+        "signing_key_kid": "kat-test-key-1"
+      },
+      "digest": "3c6d78c9a0e44e9e74152f3d76ee3c805a8eb8348e83ecc515f0b48cb15a173e",
+      "expect": "malformed",
+      "loadKeys": true,
+      "name": "empty_pattern",
+      "probes": [
+        {
+          "denied": false,
+          "text": "please DROP TABLE users"
+        },
+        {
+          "denied": false,
+          "text": "DROP DATABASE prod"
+        }
+      ],
+      "signedFloor": 0
+    },
+    {
+      "activeIsSigned": false,
+      "blob": {
+        "created_at": 0,
+        "rules": [
+          {
+            "id": "sql_injection",
+            "pattern": "DROP TABLE",
+            "severity": "critical"
+          },
+          {
+            "id": "pii_leak",
+            "pattern": "ssn",
+            "severity": "medium"
+          }
+        ],
+        "ruleset_version": 0,
+        "signature_b64": "JezhRut6rO46Hgc0y1DWqNIx0hYqL/39N7cFEVLN498eC51OyKqxwLKLoKCeYAIGOJ/BlllW+26d7S6xSgpBCA==",
+        "signing_key_kid": "kat-test-key-1"
+      },
+      "digest": "d27d77ce7cfd4b408e09bc0649def790b3bfca9d12b326c42c0d84ee97535dd8",
+      "expect": "version_stale",
+      "loadKeys": true,
+      "name": "signed_version_zero",
+      "probes": [
+        {
+          "denied": false,
+          "text": "please DROP TABLE users"
+        },
+        {
+          "denied": false,
+          "text": "DROP DATABASE prod"
+        }
+      ],
+      "signedFloor": 0
+    },
+    {
+      "activeIsSigned": false,
+      "blob": {
+        "created_at": 0,
+        "rules": [
+          {
+            "id": "sql_injection",
+            "pattern": "DROP TABLE",
+            "severity": "critical"
+          },
+          {
+            "id": "pii_leak",
+            "pattern": "ssn",
+            "severity": "medium"
+          }
+        ],
+        "ruleset_version": 42,
+        "signature_b64": "AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC+8lhoK1x53PKaxp69uHjFi/wSU2baQ7GqVAf+zCEEBg==",
+        "signing_key_kid": "kat-test-key-1"
+      },
+      "digest": "da680ea9cafcc83ae2735f60cf2b3698148f8178416941b9b7c28428e022b840",
+      "expect": "signature_invalid",
+      "loadKeys": true,
+      "name": "small_order_r_signature_is_refused_by_the_strict_check",
+      "probes": [
+        {
+          "denied": false,
+          "text": "please DROP TABLE users"
+        },
+        {
+          "denied": false,
+          "text": "DROP DATABASE prod"
+        }
+      ],
+      "signedFloor": 0
+    },
+    {
+      "activeIsSigned": true,
+      "blob": {
+        "created_at": 0,
+        "rules": [
+          {
+            "id": "sql_injection",
+            "pattern": "DROP DATABASE",
+            "severity": "critical"
+          },
+          {
+            "id": "pii_leak",
+            "pattern": "ssn",
+            "severity": "medium"
+          }
+        ],
+        "ruleset_version": 43,
+        "signature_b64": "YPq2kFmd8hEdaTbvy6hR4t2Y5sjWTtZzGi+89otqQu4Usrk1Hny/qJFhiYBBQrFjv+sT5KMXClzP/mxAj+/RCA==",
+        "signing_key_kid": "kat-test-key-1"
+      },
+      "digest": "6a325e0e60c7026d4ba7456130e93d501fb3792392e60590862001327d8fcd45",
+      "expect": "signature_invalid",
+      "loadKeys": true,
+      "name": "tampered_after_a_good_load",
+      "preloadBlob": {
+        "created_at": 0,
+        "rules": [
+          {
+            "id": "sql_injection",
+            "pattern": "DROP TABLE",
+            "severity": "critical"
+          },
+          {
+            "id": "pii_leak",
+            "pattern": "ssn",
+            "severity": "medium"
+          }
+        ],
+        "ruleset_version": 42,
+        "signature_b64": "ET3llCOHE4V9NQb6MkxR1YLKbj+Dym94ftNZqOm6+7b8tiUOUv6jVMvQ6EnA02DKSinzlQRXNaoKAykDY53BAA==",
+        "signing_key_kid": "kat-test-key-1"
+      },
+      "probes": [
+        {
+          "denied": true,
+          "text": "please DROP TABLE users"
+        },
+        {
+          "denied": false,
+          "text": "DROP DATABASE prod"
+        }
+      ],
+      "signedFloor": 42
+    },
+    {
+      "activeIsSigned": true,
+      "blob": {
+        "created_at": 0,
+        "rules": [
+          {
+            "id": "sql_injection",
+            "pattern": "DROP TABLE",
+            "severity": "critical"
+          },
+          {
+            "id": "pii_leak",
+            "pattern": "ssn",
+            "severity": "medium"
+          }
+        ],
+        "ruleset_version": 43,
+        "signature_b64": "YPq2kFmd8hEdaTbvy6hR4t2Y5sjWTtZzGi+89otqQu4Bhq+SON/RAGj+gCMgPJB4v+sT5KMXClzP/mxAj+/RGA==",
+        "signing_key_kid": "kat-test-key-1"
+      },
+      "digest": "5856fd68b43e97cf2ec57d87eef1b7221b0c574ba7fe7b10f908897bbcf07bbf",
+      "expect": "signature_non_canonical",
+      "loadKeys": true,
+      "name": "high_s_after_a_good_load",
+      "preloadBlob": {
+        "created_at": 0,
+        "rules": [
+          {
+            "id": "sql_injection",
+            "pattern": "DROP TABLE",
+            "severity": "critical"
+          },
+          {
+            "id": "pii_leak",
+            "pattern": "ssn",
+            "severity": "medium"
+          }
+        ],
+        "ruleset_version": 42,
+        "signature_b64": "ET3llCOHE4V9NQb6MkxR1YLKbj+Dym94ftNZqOm6+7b8tiUOUv6jVMvQ6EnA02DKSinzlQRXNaoKAykDY53BAA==",
+        "signing_key_kid": "kat-test-key-1"
+      },
+      "probes": [
+        {
+          "denied": true,
+          "text": "please DROP TABLE users"
+        },
+        {
+          "denied": false,
+          "text": "DROP DATABASE prod"
+        }
+      ],
+      "signedFloor": 42
+    },
+    {
+      "activeIsSigned": true,
+      "blob": {
+        "created_at": 0,
+        "rules": [
+          {
+            "id": "sql_injection",
+            "pattern": "DROP TABLE",
+            "severity": "critical"
+          },
+          {
+            "id": "pii_leak",
+            "pattern": "ssn",
+            "severity": "medium"
+          }
+        ],
+        "ruleset_version": 43,
+        "signature_b64": "YPq2kFmd8hEdaTbvy6hR4t2Y5sjWTtZzGi+89otqQu4Usrk1Hny/qJFhiYBBQrFjv+sT5KMXClzP/mxAj+/RCA==",
+        "signing_key_kid": "some-other-kid"
+      },
+      "digest": "5856fd68b43e97cf2ec57d87eef1b7221b0c574ba7fe7b10f908897bbcf07bbf",
+      "expect": "unknown_kid",
+      "loadKeys": true,
+      "name": "unknown_kid_after_a_good_load",
+      "preloadBlob": {
+        "created_at": 0,
+        "rules": [
+          {
+            "id": "sql_injection",
+            "pattern": "DROP TABLE",
+            "severity": "critical"
+          },
+          {
+            "id": "pii_leak",
+            "pattern": "ssn",
+            "severity": "medium"
+          }
+        ],
+        "ruleset_version": 42,
+        "signature_b64": "ET3llCOHE4V9NQb6MkxR1YLKbj+Dym94ftNZqOm6+7b8tiUOUv6jVMvQ6EnA02DKSinzlQRXNaoKAykDY53BAA==",
+        "signing_key_kid": "kat-test-key-1"
+      },
+      "probes": [
+        {
+          "denied": true,
+          "text": "please DROP TABLE users"
+        },
+        {
+          "denied": false,
+          "text": "DROP DATABASE prod"
+        }
+      ],
+      "signedFloor": 42
+    },
+    {
+      "activeIsSigned": true,
+      "blob": {
+        "created_at": 0,
+        "rules": [
+          {
+            "id": "sql_injection",
+            "pattern": "DROP TABLE",
+            "severity": "critical"
+          },
+          {
+            "id": "pii_leak",
+            "pattern": "ssn",
+            "severity": "medium"
+          }
+        ],
+        "ruleset_version": 43,
+        "signature_b64": "wUfP0YbHQuxfPMUoShtvnH90rgqLfTHr6HZVrsApbFmUfYZXSKB+YLNpRDLBd+4vT3n1kJJe7hqDloDIcSHZAA==",
+        "signing_key_kid": "kat-test-key-1"
+      },
+      "digest": "5856fd68b43e97cf2ec57d87eef1b7221b0c574ba7fe7b10f908897bbcf07bbf",
+      "expect": "signature_invalid",
+      "loadKeys": true,
+      "name": "wrong_key_after_a_good_load",
+      "preloadBlob": {
+        "created_at": 0,
+        "rules": [
+          {
+            "id": "sql_injection",
+            "pattern": "DROP TABLE",
+            "severity": "critical"
+          },
+          {
+            "id": "pii_leak",
+            "pattern": "ssn",
+            "severity": "medium"
+          }
+        ],
+        "ruleset_version": 42,
+        "signature_b64": "ET3llCOHE4V9NQb6MkxR1YLKbj+Dym94ftNZqOm6+7b8tiUOUv6jVMvQ6EnA02DKSinzlQRXNaoKAykDY53BAA==",
+        "signing_key_kid": "kat-test-key-1"
+      },
+      "probes": [
+        {
+          "denied": true,
+          "text": "please DROP TABLE users"
+        },
+        {
+          "denied": false,
+          "text": "DROP DATABASE prod"
+        }
+      ],
+      "signedFloor": 42
+    },
+    {
+      "activeIsSigned": true,
+      "blob": {
+        "created_at": 0,
+        "rules": [
+          {
+            "id": "sql_injection",
+            "pattern": "DROP TABLE",
+            "severity": "critical"
+          },
+          {
+            "id": "pii_leak",
+            "pattern": "ssn",
+            "severity": "medium"
+          }
+        ],
+        "ruleset_version": 42,
+        "signature_b64": "ET3llCOHE4V9NQb6MkxR1YLKbj+Dym94ftNZqOm6+7b8tiUOUv6jVMvQ6EnA02DKSinzlQRXNaoKAykDY53BAA==",
+        "signing_key_kid": "kat-test-key-1"
+      },
+      "digest": "da680ea9cafcc83ae2735f60cf2b3698148f8178416941b9b7c28428e022b840",
+      "expect": "ok",
+      "loadKeys": true,
+      "name": "huge_unsigned_version_then_signed",
+      "preloadUnsigned": {
+        "rules": [],
+        "ruleset_version": 9007199254740991
+      },
+      "probes": [
+        {
+          "denied": true,
+          "text": "please DROP TABLE users"
+        },
+        {
+          "denied": false,
+          "text": "DROP DATABASE prod"
+        }
+      ],
+      "signedFloor": 42,
+      "version": 42
+    },
+    {
+      "activeIsSigned": true,
+      "afterUnsigned": {
+        "activeIsSigned": false,
+        "probes": [
+          {
+            "denied": false,
+            "text": "please DROP TABLE users"
+          },
+          {
+            "denied": false,
+            "text": "DROP DATABASE prod"
+          }
+        ],
+        "signedFloor": 43
+      },
+      "blob": {
+        "created_at": 0,
+        "rules": [
+          {
+            "id": "sql_injection",
+            "pattern": "DROP TABLE",
+            "severity": "critical"
+          },
+          {
+            "id": "pii_leak",
+            "pattern": "ssn",
+            "severity": "medium"
+          }
+        ],
+        "ruleset_version": 43,
+        "signature_b64": "YPq2kFmd8hEdaTbvy6hR4t2Y5sjWTtZzGi+89otqQu4Usrk1Hny/qJFhiYBBQrFjv+sT5KMXClzP/mxAj+/RCA==",
+        "signing_key_kid": "kat-test-key-1"
+      },
+      "digest": "5856fd68b43e97cf2ec57d87eef1b7221b0c574ba7fe7b10f908897bbcf07bbf",
+      "expect": "ok",
+      "loadKeys": true,
+      "name": "signed_then_unsigned_replaces_it",
+      "preloadBlob": {
+        "created_at": 0,
+        "rules": [
+          {
+            "id": "sql_injection",
+            "pattern": "DROP TABLE",
+            "severity": "critical"
+          },
+          {
+            "id": "pii_leak",
+            "pattern": "ssn",
+            "severity": "medium"
+          }
+        ],
+        "ruleset_version": 42,
+        "signature_b64": "ET3llCOHE4V9NQb6MkxR1YLKbj+Dym94ftNZqOm6+7b8tiUOUv6jVMvQ6EnA02DKSinzlQRXNaoKAykDY53BAA==",
+        "signing_key_kid": "kat-test-key-1"
+      },
+      "probes": [
+        {
+          "denied": true,
+          "text": "please DROP TABLE users"
+        },
+        {
+          "denied": false,
+          "text": "DROP DATABASE prod"
+        }
+      ],
+      "signedFloor": 43,
+      "thenUnsigned": {
+        "rules": [],
+        "ruleset_version": 1
+      },
+      "version": 43
+    },
+    {
+      "activeIsSigned": true,
+      "blob": {
+        "created_at": 0,
+        "rules": [
+          {
+            "id": "sql_injection",
+            "pattern": "DROP TABLE",
+            "severity": "critical"
+          },
+          {
+            "id": "pii_leak",
+            "pattern": "ssn",
+            "severity": "medium"
+          }
+        ],
+        "ruleset_version": 42,
+        "signature_b64": "ET3llCOHE4V9NQb6MkxR1YLKbj+Dym94ftNZqOm6+7b8tiUOUv6jVMvQ6EnA02DKSinzlQRXNaoKAykDY53BAA==",
+        "signing_key_kid": "kat-test-key-1"
+      },
+      "digest": "da680ea9cafcc83ae2735f60cf2b3698148f8178416941b9b7c28428e022b840",
+      "expect": "version_stale",
+      "loadKeys": true,
+      "name": "same_version_is_stale",
+      "preloadBlob": {
+        "created_at": 0,
+        "rules": [
+          {
+            "id": "sql_injection",
+            "pattern": "DROP TABLE",
+            "severity": "critical"
+          },
+          {
+            "id": "pii_leak",
+            "pattern": "ssn",
+            "severity": "medium"
+          }
+        ],
+        "ruleset_version": 42,
+        "signature_b64": "ET3llCOHE4V9NQb6MkxR1YLKbj+Dym94ftNZqOm6+7b8tiUOUv6jVMvQ6EnA02DKSinzlQRXNaoKAykDY53BAA==",
+        "signing_key_kid": "kat-test-key-1"
+      },
+      "probes": [
+        {
+          "denied": true,
+          "text": "please DROP TABLE users"
+        },
+        {
+          "denied": false,
+          "text": "DROP DATABASE prod"
+        }
+      ],
+      "signedFloor": 42
+    },
+    {
+      "activeIsSigned": true,
+      "blob": {
+        "created_at": 0,
+        "rules": [
+          {
+            "id": "sql_injection",
+            "pattern": "DROP TABLE",
+            "severity": "critical"
+          },
+          {
+            "id": "pii_leak",
+            "pattern": "ssn",
+            "severity": "medium"
+          }
+        ],
+        "ruleset_version": 42,
+        "signature_b64": "ET3llCOHE4V9NQb6MkxR1YLKbj+Dym94ftNZqOm6+7b8tiUOUv6jVMvQ6EnA02DKSinzlQRXNaoKAykDY53BAA==",
+        "signing_key_kid": "kat-test-key-1"
+      },
+      "digest": "da680ea9cafcc83ae2735f60cf2b3698148f8178416941b9b7c28428e022b840",
+      "expect": "version_stale",
+      "loadKeys": true,
+      "name": "older_version_is_stale",
+      "preloadBlob": {
+        "created_at": 0,
+        "rules": [
+          {
+            "id": "sql_injection",
+            "pattern": "DROP TABLE",
+            "severity": "critical"
+          },
+          {
+            "id": "pii_leak",
+            "pattern": "ssn",
+            "severity": "medium"
+          }
+        ],
+        "ruleset_version": 43,
+        "signature_b64": "YPq2kFmd8hEdaTbvy6hR4t2Y5sjWTtZzGi+89otqQu4Usrk1Hny/qJFhiYBBQrFjv+sT5KMXClzP/mxAj+/RCA==",
+        "signing_key_kid": "kat-test-key-1"
+      },
+      "probes": [
+        {
+          "denied": true,
+          "text": "please DROP TABLE users"
+        },
+        {
+          "denied": false,
+          "text": "DROP DATABASE prod"
+        }
+      ],
+      "signedFloor": 43
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+.venv/
+__pycache__/
+*.pyc
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+k9o/kibo/_ffi/kibo_kms_rest_ffi.py
+k9o/kibo/_ffi/*.dylib
+k9o/kibo/_ffi/*.so
+k9o/kibo/_ffi/*.dll
+k9o/barbican/_ffi/k9o_keep_core_ffi_uniffi.py
+k9o/barbican/_ffi/*.dylib
+k9o/barbican/_ffi/*.so
+k9o/barbican/_ffi/*.dll
